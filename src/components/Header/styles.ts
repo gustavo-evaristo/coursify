@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 export const Container = styled.View`
   width: 100%;
   background-color: #fff;
-  shadow-color: ${colors.grey.tertiary};
+  shadow-color: ${colors.gray.tertiary};
   elevation: 10;
   display: flex;
   flex-direction: row;

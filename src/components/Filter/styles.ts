@@ -16,7 +16,7 @@ export const TextFilter = styled.Text`
 
   font-family: 'Roboto-Regular';
 
-  color: ${colors.grey.tertiary};
+  color: ${colors.gray.tertiary};
 `;
 
 export const ContentFilter = styled.View`
@@ -34,6 +34,6 @@ export const ContentFilter = styled.View`
 `;
 
 export const ArrowIcon = styled(MaterialIcons).attrs({
-  name: 'arrow-right',
+  name: 'arrow-drop-down',
   size: 20,
 })``;
