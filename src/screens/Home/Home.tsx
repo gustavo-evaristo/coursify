@@ -1,11 +1,20 @@
 import React from 'react';
-import {Wrapper, Container, Title} from './styles';
+import {
+  Wrapper,
+  Container,
+  HeaderStyled,
+  CategoryStyled,
+  FilterStyled,
+} from './styles';
 
 const Home = () => {
   return (
     <Wrapper>
-      <Title>Titutlo</Title>
-      <Container />
+      <HeaderStyled />
+      <Container>
+        <FilterStyled text="A-Z" />
+        <CategoryStyled name="CURSOS ONLINE" />
+      </Container>
     </Wrapper>
   );
 };

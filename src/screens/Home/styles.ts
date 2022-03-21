@@ -1,14 +1,19 @@
 import styled from 'styled-components/native';
 import {colors} from '../../theme';
+import {Category, Filter, Header} from '../../components';
 
 export const Wrapper = styled.SafeAreaView`
   flex: 1;
   background-color: ${colors.white.primary};
 `;
 
-export const Container = styled.ScrollView``;
+export const HeaderStyled = styled(Header)``;
 
-export const Title = styled.Text`
-  /* font-family: 'Roboto-Bold'; */
-  font-size: 30px;
+export const Container = styled.View`
+  flex: 1;
+  padding: 30px 15px 20px;
 `;
+
+export const CategoryStyled = styled(Category)``;
+
+export const FilterStyled = styled(Filter)``;

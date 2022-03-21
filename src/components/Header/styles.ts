@@ -4,15 +4,14 @@ import Icon from 'react-native-vector-icons/Entypo';
 
 export const Container = styled.View`
   width: 100%;
-  height: 8%;
   background-color: #fff;
-  shadow-color: ${colors.gray.tertiary};
+  shadow-color: ${colors.grey.tertiary};
   elevation: 10;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 15px;
+  padding: 5px 15px;
 `;
 
 export const Image = styled.Image`

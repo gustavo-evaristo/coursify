@@ -10,7 +10,7 @@ export const colors = {
     secondary: '#FFA900',
   },
 
-  gray: {
+  grey: {
     primary: '#00000029',
     secondary: '#868686',
     tertiary: '#535353',
@@ -19,5 +19,6 @@ export const colors = {
   white: {
     primary: '#FFFFFF',
     secondary: '#0000000F',
+    tertiary: '#E1E1E1',
   },
 };
