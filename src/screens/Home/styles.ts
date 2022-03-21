@@ -6,8 +6,9 @@ export const Wrapper = styled.SafeAreaView`
   background-color: ${colors.white.primary};
 `;
 
-export const Container = styled.ScrollView`
-  flex: 1;
-  background: blue;
-  margin: 0 auto;
+export const Container = styled.ScrollView``;
+
+export const Title = styled.Text`
+  /* font-family: 'Roboto-Bold'; */
+  font-size: 30px;
 `;
