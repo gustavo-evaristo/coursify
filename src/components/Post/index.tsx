@@ -1,4 +1,5 @@
 import React from 'react';
+import {textReplace} from '../../utils';
 
 import {Container, Image, Text, Content} from './styles';
 
@@ -20,10 +21,10 @@ export const Post: React.FC<Props> = ({
     <Image source={{uri}} />
     <Content>
       <Text isTitle isGreen numberOfLines={2}>
-        {title?.replace(/<[^>]+>/g, '')}
+        {textReplace(title)}
       </Text>
       <Text isGray isDescription numberOfLines={3}>
-        {description?.replace(/<[^>]+>/g, '')}
+        {textReplace(description)}
       </Text>
       <Text onPress={onPress}>Leia Mais</Text>
     </Content>
