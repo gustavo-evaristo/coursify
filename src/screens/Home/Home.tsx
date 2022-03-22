@@ -10,7 +10,7 @@ type Props = {
   loading: boolean;
   onRefresh: () => void;
   refreshing: boolean;
-  toPost: (post: PostType) => void;
+  toPost: (id: number) => void;
 };
 
 const Home: React.FC<Props> = ({
@@ -42,7 +42,7 @@ const Home: React.FC<Props> = ({
                       <Post
                         title={item?.title.rendered}
                         description={item?.excerpt.rendered}
-                        onPress={() => toPost(item)}
+                        onPress={() => toPost(item.id)}
                         uri={item?.media_url}
                       />
                     </If>

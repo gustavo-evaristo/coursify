@@ -1,11 +1,34 @@
 import React from 'react';
-import {Header} from '../../components';
+import {RefreshControl} from 'react-native';
+import {Header, If} from '../../components';
 
-import {Wrapper} from './styles';
+import {Wrapper, Text, Content} from './styles';
 
-const Post: React.FC = () => (
+type Props = {
+  refreshing: boolean;
+  onRefresh: () => void;
+  data: PostType;
+  goBack: () => void;
+  loading: boolean;
+};
+
+const Post: React.FC<Props> = ({
+  refreshing,
+  onRefresh,
+  loading,
+  data,
+  goBack,
+}) => (
   <Wrapper>
-    <Header showIconBack />
+    <If condition={!loading}>
+      <Header showIconBack onPressIconBack={goBack} />
+      <Content
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      />
+      <Text>{data?.title.rendered}</Text>
+    </If>
   </Wrapper>
 );
 

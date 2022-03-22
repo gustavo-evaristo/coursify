@@ -19,6 +19,15 @@ class Api {
     }
   }
 
+  public async getPost(id: number): Promise<PostType> {
+    try {
+      const {data} = await this.request.get(`/posts/${id}`);
+      return data;
+    } catch (err) {
+      return null;
+    }
+  }
+
   public async getCategories(): Promise<CategoryType[]> {
     try {
       const {data} = await this.request.get('/categories');

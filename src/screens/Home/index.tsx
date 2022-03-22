@@ -12,7 +12,7 @@ const HomeContainer = () => {
 
   const navigation = useNavigation<any>();
 
-  const toPost = (post: PostType) => navigation.navigate('POST', {post});
+  const toPost = (id: number) => navigation.navigate('POST', {id});
 
   const handleMedia = async (id: number) => {
     const response = await api.getMedia(id);
