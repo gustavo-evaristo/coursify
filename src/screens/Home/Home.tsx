@@ -28,45 +28,41 @@ const Home: React.FC<Props> = ({
   toPost,
 }) => {
   return (
-    <>
-      <If condition={!loading}>
-        <Wrapper>
-          <Header />
-          <Container
-            refreshControl={
-              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-            }>
-            <ContentItems>
-              <Filter text="A-Z" />
-              {categories.map((category: CategoryType) => (
-                <>
-                  <Category name={category.name} />
-                  <ContainerPosts>
-                    <ContentPosts
-                      data={posts}
-                      keyExtractor={(item: PostType) => String(item.id)}
-                      renderItem={({item}) => (
-                        <If
-                          condition={item.categories.includes(category.id)}
-                          key={item.id}>
-                          <Post
-                            title={item?.title.rendered}
-                            description={item?.excerpt.rendered}
-                            onPress={() => toPost(item.id)}
-                            uri={item?.media_url}
-                          />
-                        </If>
-                      )}
-                    />
-                  </ContainerPosts>
-                </>
-              ))}
-            </ContentItems>
-            <Footer />
-          </Container>
-        </Wrapper>
-      </If>
-    </>
+    <Wrapper>
+      <Header loading={loading} />
+      <Container
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
+        <ContentItems>
+          <Filter text="A-Z" loading={loading} />
+          {categories.map((category: CategoryType) => (
+            <>
+              <Category name={category.name} loading={loading} />
+              <ContainerPosts>
+                <ContentPosts
+                  data={posts}
+                  keyExtractor={(item: PostType) => String(item.id)}
+                  renderItem={({item}) => (
+                    <If
+                      condition={item.categories.includes(category.id)}
+                      key={item.id}>
+                      <Post
+                        title={item?.title.rendered}
+                        description={item?.excerpt.rendered}
+                        onPress={() => toPost(item.id)}
+                        uri={item?.media_url}
+                      />
+                    </If>
+                  )}
+                />
+              </ContainerPosts>
+            </>
+          ))}
+        </ContentItems>
+        <Footer />
+      </Container>
+    </Wrapper>
   );
 };
 

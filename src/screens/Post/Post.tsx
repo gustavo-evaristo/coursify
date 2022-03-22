@@ -1,9 +1,23 @@
 import React from 'react';
-import {RefreshControl} from 'react-native';
+import {RefreshControl, View} from 'react-native';
 import {Header, If, Footer} from '../../components';
 import {textReplace} from '../../utils';
 
-import {Wrapper, Text, Content, Image, ContentItems} from './styles';
+import {
+  Wrapper,
+  Text,
+  Content,
+  Image,
+  ContentItems,
+  ShimmerTitle,
+  ShimmerSubTitle,
+  ContentShimmer,
+  ShimmerSubText,
+  ShimmerText,
+  ShimmerContentDescription,
+  ShimmerImage,
+  ShimmerContentImage,
+} from './styles';
 
 type Props = {
   refreshing: boolean;
@@ -21,8 +35,34 @@ const Post: React.FC<Props> = ({
   goBack,
 }) => (
   <Wrapper>
+    <If condition={loading}>
+      <Header loading={loading} />
+      <ContentShimmer>
+        <ShimmerTitle />
+        <ShimmerSubTitle />
+        <ShimmerContentDescription>
+          {[0, 1, 2, 3].map(item => (
+            <View key={item}>
+              <ShimmerText />
+              <ShimmerSubText />
+            </View>
+          ))}
+        </ShimmerContentDescription>
+        <ShimmerContentImage>
+          <ShimmerImage />
+        </ShimmerContentImage>
+        <ShimmerContentDescription>
+          {[0, 1, 2, 3, 4].map(item => (
+            <View key={item}>
+              <ShimmerText />
+              <ShimmerSubText />
+            </View>
+          ))}
+        </ShimmerContentDescription>
+      </ContentShimmer>
+    </If>
     <If condition={!loading}>
-      <Header showIconBack onPressIconBack={goBack} />
+      <Header showIconBack onPressIconBack={goBack} loading={loading} />
       <Content
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />

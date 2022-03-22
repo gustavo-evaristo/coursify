@@ -1,6 +1,19 @@
 import styled from 'styled-components/native';
 import {colors} from '../../theme';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {Shimmer} from '../Shimmer';
+
+export const TextShimmer = styled(Shimmer)`
+  width: 120px;
+  height: 20px;
+  border-radius: 4px;
+`;
+
+export const FilterShimmer = styled(Shimmer)`
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+`;
 
 export const Container = styled.View`
   margin: 15px 0;
