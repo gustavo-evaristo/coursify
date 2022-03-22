@@ -6,7 +6,7 @@ export const Container = styled.View`
   width: 100%;
   background-color: #fff;
   shadow-color: ${colors.gray.tertiary};
-  elevation: 10;
+  elevation: 2;
   display: flex;
   flex-direction: row;
   align-items: center;

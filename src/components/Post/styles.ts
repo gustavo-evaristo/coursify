@@ -10,12 +10,24 @@ type PropsText = {
 
 export const Container = styled.View`
   width: 235px;
-  height: 325px;
+  height: 350px;
   border-radius: 12px;
 
   display: flex;
   flex-direction: column;
   margin: 0 10px 30px;
+
+  background-color: ${colors.white.primary};
+
+  shadow-color: ${colors.gray.secondary};
+
+  shadow-radius: 10px;
+
+  elevation: 2;
+`;
+
+export const Content = styled.View`
+  padding: 0px 10px;
 `;
 
 export const Image = styled.Image`

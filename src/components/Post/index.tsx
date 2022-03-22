@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Container, Image, Text} from './styles';
+import {Container, Image, Text, Content} from './styles';
 
 type Props = {
   title: string;
@@ -16,14 +16,16 @@ export const Post: React.FC<Props> = ({
   onPress,
   ...rest
 }) => (
-  <Container {...{...rest, onPress}}>
+  <Container {...rest}>
     <Image source={{uri}} />
-    <Text isTitle isGreen numberOfLines={2}>
-      {title?.replace(/<[^>]+>/g, '')}
-    </Text>
-    <Text isGray isDescription numberOfLines={3}>
-      {description?.replace(/<[^>]+>/g, '')}
-    </Text>
-    <Text>Leia Mais</Text>
+    <Content>
+      <Text isTitle isGreen numberOfLines={2}>
+        {title?.replace(/<[^>]+>/g, '')}
+      </Text>
+      <Text isGray isDescription numberOfLines={3}>
+        {description?.replace(/<[^>]+>/g, '')}
+      </Text>
+      <Text onPress={onPress}>Leia Mais</Text>
+    </Content>
   </Container>
 );
