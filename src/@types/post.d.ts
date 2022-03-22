@@ -24,6 +24,9 @@ declare type MediaType = {
       medium_large: {
         source_url: string;
       };
+      medium: {
+        source_url: string;
+      };
     };
   };
 };

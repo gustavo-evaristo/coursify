@@ -1,9 +1,9 @@
 import React from 'react';
 import {RefreshControl} from 'react-native';
-import {Header, If} from '../../components';
+import {Header, If, Footer} from '../../components';
 import {textReplace} from '../../utils';
 
-import {Wrapper, Text, Content, Image} from './styles';
+import {Wrapper, Text, Content, Image, ContentItems} from './styles';
 
 type Props = {
   refreshing: boolean;
@@ -27,12 +27,15 @@ const Post: React.FC<Props> = ({
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }>
-        <Text>{data?.title.rendered}</Text>
-        <Text isDescription>{textReplace(data?.excerpt.rendered)}</Text>
+        <ContentItems>
+          <Text>{data?.title.rendered}</Text>
+          <Text isDescription>{textReplace(data?.excerpt.rendered)}</Text>
 
-        <Image source={{uri: data?.media_url}} />
+          <Image source={{uri: data?.media_url}} />
 
-        <Text isDescription>{textReplace(data?.excerpt.rendered)}</Text>
+          <Text isDescription>{textReplace(data?.excerpt.rendered)}</Text>
+        </ContentItems>
+        <Footer />
       </Content>
     </If>
   </Wrapper>

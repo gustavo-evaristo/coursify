@@ -9,8 +9,9 @@ export const Wrapper = styled.SafeAreaView`
 export const Container = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
   vertical: true,
-})`
-  flex: 1;
+})``;
+
+export const Content = styled.View`
   padding: 0 15px;
 `;
 
@@ -24,3 +25,7 @@ export const ContentPosts = styled.FlatList.attrs({
   numColumns: 1,
   showsHorizontalScrollIndicator: false,
 })``;
+
+export const ContentItems = styled.View`
+  padding: 0 15px;
+`;

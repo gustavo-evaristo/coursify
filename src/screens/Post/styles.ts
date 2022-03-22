@@ -14,7 +14,6 @@ export const Content = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
 })`
   margin: 0 auto;
-  padding: 0 20px;
 `;
 
 export const Text = styled.Text`
@@ -23,17 +22,21 @@ export const Text = styled.Text`
   font-family: ${(props: PropsText) =>
     props.isDescription ? 'Roboto-Regular' : 'Roboto-Bold'};
 
-  font-size: ${(props: PropsText) => (props.isDescription ? '17px' : '24px')};
+  font-size: ${(props: PropsText) => (props.isDescription ? '16px' : '24px')};
 
   color: ${(props: PropsText) =>
     props.isDescription ? colors.gray.primary : colors.green.tertiary};
 
   text-align: justify;
 
-  line-height: ${(props: PropsText) => (props.isDescription ? '28px' : '33px')};
+  line-height: ${(props: PropsText) => (props.isDescription ? '27px' : '33px')};
 `;
 
 export const Image = styled.Image`
   width: 366px;
   height: 244px;
+`;
+
+export const ContentItems = styled.View`
+  padding: 0 15px;
 `;
