@@ -1,10 +1,30 @@
 import React from 'react';
-import {Container, MenuContent, Image, MenuItem} from './styles';
+import {If} from '../If';
+
 import Logo from '../../assets/images/logo.png';
 
-export const Header: React.FC = ({...rest}) => (
-  <Container {...rest}>
-    <Image source={Logo} />
+import {
+  Container,
+  MenuContent,
+  Image,
+  MenuItem,
+  IconBack,
+  IconContent,
+} from './styles';
+
+type Props = {
+  showIconBack?: boolean;
+  onPressIconBack?: () => void;
+};
+
+export const Header: React.FC<Props> = ({showIconBack, onPressIconBack}) => (
+  <Container>
+    <IconContent>
+      <If condition={showIconBack || false}>
+        <IconBack onPress={onPressIconBack} />
+      </If>
+      <Image source={Logo} />
+    </IconContent>
     <MenuContent>
       <MenuItem />
     </MenuContent>

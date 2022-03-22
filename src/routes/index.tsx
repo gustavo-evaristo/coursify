@@ -1,10 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-// import Welcome from '../screens/Welcome';
-// import Register from '../screens/Register';
-// import Sign from '../screens/Sign';
-import {Home} from '../screens';
+import {Home, Post} from '../screens';
 
 const {Navigator, Screen} = createNativeStackNavigator();
 
@@ -19,10 +16,8 @@ const Routes = () => (
         animation: 'fade',
       }}
       initialRouteName="HOME">
-      {/* <Screen name="welcome" component={Welcome} />
-      <Screen name="register" component={Register} />
-      <Screen name="sign" component={Sign} /> */}
       <Screen name="HOME" component={Home} />
+      <Screen name="POST" component={Post} />
     </Navigator>
   </NavigationContainer>
 );

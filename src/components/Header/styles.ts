@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import {colors} from '../../theme';
-import Icon from 'react-native-vector-icons/Entypo';
+import Entypo from 'react-native-vector-icons/Entypo';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 export const Container = styled.View`
   width: 100%;
@@ -29,8 +30,22 @@ export const MenuContent = styled.View`
   justify-content: center;
 `;
 
-export const MenuItem = styled(Icon).attrs({
+export const MenuItem = styled(Entypo).attrs({
   name: 'menu',
   size: 25,
   color: colors.white.primary,
 })``;
+
+export const IconContent = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const IconBack = styled(AntDesign).attrs({
+  name: 'arrowleft',
+  size: 25,
+})`
+  margin-right: 5px;
+`;

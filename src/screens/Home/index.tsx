@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
 import Home from './Home';
 import api from '../../api';
 
@@ -8,6 +9,10 @@ const HomeContainer = () => {
   const [posts, setPosts] = useState<PostType[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+
+  const navigation = useNavigation<any>();
+
+  const toPost = () => navigation.navigate('POST');
 
   const handleMedia = async (id: number) => {
     const response = await api.getMedia(id);
@@ -54,6 +59,7 @@ const HomeContainer = () => {
       loading={loading}
       onRefresh={onRefresh}
       refreshing={refreshing}
+      toPost={toPost}
     />
   );
 };

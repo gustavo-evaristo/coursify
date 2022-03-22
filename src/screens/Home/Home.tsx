@@ -10,6 +10,7 @@ type Props = {
   loading: boolean;
   onRefresh: () => void;
   refreshing: boolean;
+  toPost: () => void;
 };
 
 const Home: React.FC<Props> = ({
@@ -18,6 +19,7 @@ const Home: React.FC<Props> = ({
   loading,
   refreshing,
   onRefresh,
+  toPost,
 }) => {
   return (
     <If condition={!loading}>
@@ -40,7 +42,7 @@ const Home: React.FC<Props> = ({
                       <Post
                         title={item?.title.rendered}
                         description={item?.excerpt.rendered}
-                        onPress={() => {}}
+                        onPress={toPost}
                         uri={item?.media_url}
                       />
                     </If>
