@@ -39,4 +39,6 @@ export const Text = styled.Text`
       : props.isGray
       ? colors.gray.secondary
       : colors.yellow.primary};
+
+  line-height: ${(props: PropsText) => (props.isDescription ? '25px' : '30px')};
 `;
