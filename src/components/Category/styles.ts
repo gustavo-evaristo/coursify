@@ -4,14 +4,14 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {Shimmer} from '../Shimmer';
 
 export const TextShimmer = styled(Shimmer)`
-  width: 120px;
-  height: 30px;
+  width: 150px;
+  height: 15px;
   border-radius: 4px;
 `;
 
 export const LoadMoreShimmer = styled(Shimmer)`
   width: 40px;
-  height: 30px;
+  height: 15px;
   border-radius: 4px;
 `;
 

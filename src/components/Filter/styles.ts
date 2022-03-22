@@ -5,7 +5,7 @@ import {Shimmer} from '../Shimmer';
 
 export const TextShimmer = styled(Shimmer)`
   width: 120px;
-  height: 20px;
+  height: 15px;
   border-radius: 4px;
 `;
 
