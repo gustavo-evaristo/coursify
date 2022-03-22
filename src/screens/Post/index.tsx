@@ -17,14 +17,24 @@ const PostContainer: React.FC = () => {
 
   const onRefresh = async () => {
     setRefreshing(true);
-    await //
+    await api.getPost(data.id);
     setRefreshing(false);
+  };
+
+  const handleMedia = async (id: number) => {
+    const response = await api.getMedia(id);
+
+    return response?.media_details?.sizes?.medium_large?.source_url;
   };
 
   const handlePost = async () => {
     setLoading(true);
+
     const response = await api.getPost(params.id);
-    setData(response);
+    const media_url = await handleMedia(response.featured_media);
+
+    setData({...response, media_url});
+
     setLoading(false);
   };
 
