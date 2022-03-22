@@ -1,23 +1,39 @@
 import styled from 'styled-components/native';
 import {colors} from '../../theme';
 
+type PropsText = {
+  isDescription: boolean;
+};
+
 export const Wrapper = styled.SafeAreaView`
   flex: 1;
   background-color: ${colors.white.primary};
 `;
 
 export const Content = styled.ScrollView.attrs({
-  vertical: true,
   showsVerticalScrollIndicator: false,
 })`
-  padding: 0 15px;
+  margin: 0 auto;
+  padding: 0 20px;
 `;
 
 export const Text = styled.Text`
-  margin: 12px 0;
-  font-family: 'Roboto-Bold';
+  margin-top: 20px;
 
-  font-size: 22px;
+  font-family: ${(props: PropsText) =>
+    props.isDescription ? 'Roboto-Regular' : 'Roboto-Bold'};
 
-  color: ${colors.green.tertiary};
+  font-size: ${(props: PropsText) => (props.isDescription ? '17px' : '24px')};
+
+  color: ${(props: PropsText) =>
+    props.isDescription ? colors.gray.primary : colors.green.tertiary};
+
+  text-align: justify;
+
+  line-height: ${(props: PropsText) => (props.isDescription ? '28px' : '33px')};
+`;
+
+export const Image = styled.Image`
+  width: 366px;
+  height: 244px;
 `;

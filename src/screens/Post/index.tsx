@@ -17,7 +17,7 @@ const PostContainer: React.FC = () => {
 
   const onRefresh = async () => {
     setRefreshing(true);
-    await api.getPost(data.id);
+    await handlePost();
     setRefreshing(false);
   };
 
@@ -28,18 +28,20 @@ const PostContainer: React.FC = () => {
   };
 
   const handlePost = async () => {
-    setLoading(true);
-
     const response = await api.getPost(params.id);
     const media_url = await handleMedia(response.featured_media);
 
     setData({...response, media_url});
+  };
 
+  const fetchData = async () => {
+    setLoading(true);
+    await handlePost();
     setLoading(false);
   };
 
   useEffect(() => {
-    handlePost();
+    fetchData();
   }, []);
 
   return (

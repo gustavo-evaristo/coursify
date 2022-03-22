@@ -11,7 +11,7 @@ export const colors = {
   },
 
   gray: {
-    primary: '#00000029',
+    primary: '#666666',
     secondary: '#868686',
     tertiary: '#535353',
   },

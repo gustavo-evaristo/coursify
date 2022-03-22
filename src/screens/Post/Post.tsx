@@ -2,7 +2,7 @@ import React from 'react';
 import {RefreshControl} from 'react-native';
 import {Header, If} from '../../components';
 
-import {Wrapper, Text, Content} from './styles';
+import {Wrapper, Text, Content, Image} from './styles';
 
 type Props = {
   refreshing: boolean;
@@ -25,9 +25,22 @@ const Post: React.FC<Props> = ({
       <Content
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-      />
-      <Text>{data?.title.rendered}</Text>
+        }>
+        <Text>{data?.title.rendered}</Text>
+        <Text isDescription>
+          {data?.excerpt.rendered
+            .replace(/<[^>]+>/g, '')
+            .replace(/&#8230;/g, '.')}
+        </Text>
+
+        <Image source={{uri: data?.media_url}} />
+
+        <Text isDescription>
+          {data?.excerpt.rendered
+            .replace(/<[^>]+>/g, '')
+            .replace(/&#8230;/g, '.')}
+        </Text>
+      </Content>
     </If>
   </Wrapper>
 );

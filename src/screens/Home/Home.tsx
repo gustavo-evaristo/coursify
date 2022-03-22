@@ -30,9 +30,9 @@ const Home: React.FC<Props> = ({
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }>
           <Filter text="A-Z" />
-          {categories.map((category: CategoryType) => (
+          {categories.map((category: CategoryType, idx) => (
             <>
-              <Category name={category.name} />
+              <Category name={category.name} key={idx} />
               <ContainerPosts>
                 <ContentPosts
                   data={posts}
