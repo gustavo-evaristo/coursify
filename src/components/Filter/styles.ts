@@ -1,7 +1,26 @@
 import styled from 'styled-components/native';
+import {StyleSheet} from 'react-native';
 import {colors} from '../../theme';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {Shimmer} from '../Shimmer';
+
+export const pickerSelectStyles = StyleSheet.create({
+  viewContainer: {
+    borderRadius: 8,
+    borderWidth: 0.5,
+    borderColor: colors.gray.secondary,
+  },
+  placeholder: {
+    color: colors.gray.tertiary,
+  },
+  inputIOS: {
+    width: 120,
+    height: 50,
+  },
+  inputAndroid: {
+    width: 120,
+    height: 50,
+  },
+});
 
 export const TextShimmer = styled(Shimmer)`
   width: 120px;
@@ -31,22 +50,3 @@ export const TextFilter = styled.Text`
 
   color: ${colors.gray.tertiary};
 `;
-
-export const ContentFilter = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-
-  border: 1px solid ${colors.white.tertiary};
-
-  border-radius: 10px;
-
-  width: 80px;
-  height: 40px;
-`;
-
-export const ArrowIcon = styled(MaterialIcons).attrs({
-  name: 'arrow-drop-down',
-  size: 20,
-})``;

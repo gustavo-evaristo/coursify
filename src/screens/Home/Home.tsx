@@ -17,6 +17,9 @@ type Props = {
   onRefresh: () => void;
   refreshing: boolean;
   toPost: (id: number) => void;
+  selectedValue: string;
+  setSelectedValue: (value: string) => void;
+  handleFilter: (value: string) => void;
 };
 
 const Home: React.FC<Props> = ({
@@ -26,7 +29,11 @@ const Home: React.FC<Props> = ({
   refreshing,
   onRefresh,
   toPost,
+  selectedValue,
+  setSelectedValue,
+  handleFilter,
 }) => {
+  const options = [{label: 'Z-A', value: 'DSC'}];
   return (
     <Wrapper>
       <Header loading={loading} />
@@ -35,7 +42,15 @@ const Home: React.FC<Props> = ({
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }>
         <ContentItems>
-          <Filter text="A-Z" loading={loading} />
+          <Filter
+            options={options}
+            onValueChange={value => {
+              setSelectedValue(value);
+              handleFilter(value);
+            }}
+            value={selectedValue}
+            loading={loading}
+          />
           {categories.map((category: CategoryType) => (
             <>
               <Category name={category.name} loading={loading} />

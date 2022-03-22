@@ -3,12 +3,14 @@ import React, {useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Home from './Home';
 import api from '../../api';
+import {sortAsc, sortDsc} from '../../utils';
 
 const HomeContainer = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [posts, setPosts] = useState<PostType[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [selectedValue, setSelectedValue] = useState('');
 
   const navigation = useNavigation<any>();
 
@@ -48,6 +50,17 @@ const HomeContainer = () => {
     setLoading(false);
   };
 
+  const handleFilter = (value: string) => {
+    if (value !== selectedValue) {
+      if (value === 'ASC') {
+        return setCategories(categories.sort(sortAsc));
+      }
+      if (value === 'DSC') {
+        return setCategories(categories.sort(sortDsc));
+      }
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -60,6 +73,9 @@ const HomeContainer = () => {
       onRefresh={onRefresh}
       refreshing={refreshing}
       toPost={toPost}
+      selectedValue={selectedValue}
+      setSelectedValue={setSelectedValue}
+      handleFilter={handleFilter}
     />
   );
 };
