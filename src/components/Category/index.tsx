@@ -13,7 +13,7 @@ type Props = {
 
 export const Category: React.FC<Props> = ({name}) => (
   <Container>
-    <TextCategory>{name}</TextCategory>
+    <TextCategory numberOfLines={1}>{name}</TextCategory>
     <ContentLoadMore>
       <TextLoadMore>VER MAIS</TextLoadMore>
       <ArrowIcon />

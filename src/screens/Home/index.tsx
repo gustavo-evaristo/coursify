@@ -18,7 +18,7 @@ const HomeContainer = () => {
   const handleCategories = async () => {
     const response = await api.getCategories();
 
-    setCategories(response);
+    setCategories([...response]);
   };
 
   const handlePost = async () => {

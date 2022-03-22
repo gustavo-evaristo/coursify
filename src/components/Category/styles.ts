@@ -19,10 +19,9 @@ export const ContentLoadMore = styled.View`
 `;
 
 export const TextCategory = styled.Text`
+  width: 65%;
   font-size: 22px;
-
   font-family: 'Roboto-Bold'
-
   color: ${colors.green.tertiary};
 `;
 

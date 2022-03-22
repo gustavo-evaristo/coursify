@@ -12,7 +12,13 @@ type Props = {
   refreshing: boolean;
 };
 
-const Home: React.FC<Props> = ({posts, loading, refreshing, onRefresh}) => {
+const Home: React.FC<Props> = ({
+  posts,
+  categories,
+  loading,
+  refreshing,
+  onRefresh,
+}) => {
   return (
     <If condition={!loading}>
       <Wrapper>
@@ -22,21 +28,27 @@ const Home: React.FC<Props> = ({posts, loading, refreshing, onRefresh}) => {
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
           }>
           <Filter text="A-Z" />
-          <Category name="CURSOS ONLINE" />
-          <ContainerPosts>
-            <ContentPosts
-              data={posts}
-              renderItem={({item}) => (
-                <Post
-                  key={item.id}
-                  title={item?.title.rendered}
-                  description={item?.excerpt.rendered}
-                  onPress={() => {}}
-                  uri={item?.media_url}
+          {categories.map((category: CategoryType) => (
+            <>
+              <Category name={category.name} />
+              <ContainerPosts>
+                <ContentPosts
+                  data={posts}
+                  keyExtractor={(item: PostType) => String(item.id)}
+                  renderItem={({item}) => (
+                    <If condition={item.categories.includes(category.id)}>
+                      <Post
+                        title={item?.title.rendered}
+                        description={item?.excerpt.rendered}
+                        onPress={() => {}}
+                        uri={item?.media_url}
+                      />
+                    </If>
+                  )}
                 />
-              )}
-            />
-          </ContainerPosts>
+              </ContainerPosts>
+            </>
+          ))}
         </Container>
       </Wrapper>
     </If>
