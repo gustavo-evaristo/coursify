@@ -23,7 +23,7 @@ export const MenuContent = styled.View`
   width: 37px;
   height: 37px;
   border-radius: 50px;
-  background-color: ${colors.green.secondary};
+  background-color: ${colors.green.primary};
   display: flex;
   align-items: center;
   justify-content: center;

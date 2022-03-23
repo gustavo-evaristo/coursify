@@ -25,7 +25,7 @@ export const Text = styled.Text`
   font-size: ${(props: PropsText) => (props.isDescription ? '16px' : '24px')};
 
   color: ${(props: PropsText) =>
-    props.isDescription ? colors.gray.primary : colors.green.tertiary};
+    props.isDescription ? colors.gray.primary : colors.green.secondary};
 
   text-align: justify;
 

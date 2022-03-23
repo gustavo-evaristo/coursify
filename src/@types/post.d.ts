@@ -1,7 +1,6 @@
 declare type CategoryType = {
   id: number;
   name: string;
-  posts_views: number;
 };
 
 declare type PostType = {
@@ -15,7 +14,6 @@ declare type PostType = {
   featured_media: number;
   categories: number[];
   media_url: string;
-  page_views: number;
 };
 
 declare type MediaType = {

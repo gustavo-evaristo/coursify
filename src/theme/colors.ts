@@ -1,8 +1,7 @@
 export const colors = {
   green: {
-    primary: '#3CC6AA',
-    secondary: '#1ABC9C',
-    tertiary: '#2AB598',
+    primary: '#1ABC9C',
+    secondary: '#2AB598',
   },
 
   yellow: {
@@ -19,6 +18,5 @@ export const colors = {
   white: {
     primary: '#FFFFFF',
     secondary: '#0000000F',
-    tertiary: '#E1E1E1',
   },
 };

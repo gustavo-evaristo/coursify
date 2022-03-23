@@ -8,7 +8,7 @@ export const Container = styled.View`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: ${colors.green.secondary};
+  background-color: ${colors.green.primary};
 `;
 
 export const Image = styled.Image`

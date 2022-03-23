@@ -47,7 +47,7 @@ export const Text = styled.Text`
 
   color: ${(props: PropsText) =>
     props.isGreen
-      ? colors.green.tertiary
+      ? colors.green.secondary
       : props.isGray
       ? colors.gray.secondary
       : colors.yellow.primary};

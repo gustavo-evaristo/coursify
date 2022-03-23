@@ -22,7 +22,7 @@ export const TextCategory = styled.Text`
   width: 65%;
   font-size: 22px;
   font-family: 'Roboto-Bold'
-  color: ${colors.green.tertiary};
+  color: ${colors.green.secondary};
 `;
 
 export const TextLoadMore = styled.Text`

@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import Home from './Home';
 import api from '../../api';
-import {sortAsc, sortDsc, someViews} from '../../utils';
+import {sortAsc, sortDsc} from '../../utils';
 
 const HomeContainer = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
@@ -36,10 +36,6 @@ const HomeContainer = () => {
 
       setPosts(old => [...old, {...item, media_url}]);
     });
-
-    const views = someViews(response);
-
-    console.log(views);
   };
 
   const onRefresh = async () => {
