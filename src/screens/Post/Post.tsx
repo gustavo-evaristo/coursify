@@ -1,26 +1,9 @@
 import React from 'react';
-import {RefreshControl, View} from 'react-native';
-import {Header, If, Footer} from '../../components';
+import {RefreshControl} from 'react-native';
+import {Header, If, Footer, Loading} from '../../components';
 import {textReplace} from '../../utils';
 
-import {
-  Wrapper,
-  Text,
-  Content,
-  Image,
-  ContentItems,
-  ShimmerTitle,
-  ShimmerSubTitle,
-  ShimmerContent,
-  ShimmerSubText,
-  ShimmerText,
-  ShimmerContentDescription,
-  ShimmerImage,
-  ShimmerContentImage,
-  ShimmerHeader,
-  ShimmerIcon,
-  ShimmerMenu,
-} from './styles';
+import {Wrapper, Text, Content, Image, ContentItems} from './styles';
 
 type Props = {
   refreshing: boolean;
@@ -39,33 +22,7 @@ const Post: React.FC<Props> = ({
 }) => (
   <Wrapper>
     <If condition={loading}>
-      <ShimmerHeader>
-        <ShimmerIcon />
-        <ShimmerMenu />
-      </ShimmerHeader>
-      <ShimmerContent>
-        <ShimmerTitle />
-        <ShimmerSubTitle />
-        <ShimmerContentDescription>
-          {[0, 1, 2, 3].map(item => (
-            <View key={item}>
-              <ShimmerText />
-              <ShimmerSubText />
-            </View>
-          ))}
-        </ShimmerContentDescription>
-        <ShimmerContentImage>
-          <ShimmerImage />
-        </ShimmerContentImage>
-        <ShimmerContentDescription>
-          {[0, 1, 2, 3, 4].map(item => (
-            <View key={item}>
-              <ShimmerText />
-              <ShimmerSubText />
-            </View>
-          ))}
-        </ShimmerContentDescription>
-      </ShimmerContent>
+      <Loading visible={loading} />
     </If>
     <If condition={!loading}>
       <Header showIconBack onPressIconBack={goBack} />

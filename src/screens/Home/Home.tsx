@@ -1,14 +1,21 @@
 import React from 'react';
 import {RefreshControl} from 'react-native';
 import {
+  Post,
+  Category,
+  Filter,
+  Header,
+  If,
+  Footer,
+  Loading,
+} from '../../components';
+import {
   Wrapper,
   Container,
   ContentPosts,
   ContainerPosts,
   ContentItems,
 } from './styles';
-
-import {Post, Category, Filter, Header, If, Footer} from '../../components';
 
 type Props = {
   posts: PostType[];
@@ -35,48 +42,56 @@ const Home: React.FC<Props> = ({
 }) => {
   const options = [{label: 'Z-A', value: 'DSC'}];
   return (
-    <Wrapper>
-      <Header />
-      <Container
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }>
-        <ContentItems>
-          <Filter
-            options={options}
-            onValueChange={value => {
-              setSelectedValue(value);
-              handleFilter(value);
-            }}
-            value={selectedValue}
-          />
-          {categories.map((category: CategoryType) => (
-            <>
-              <Category name={category.name} />
-              <ContainerPosts>
-                <ContentPosts
-                  data={posts}
-                  keyExtractor={(item: PostType) => String(item.id)}
-                  renderItem={({item}) => (
-                    <If
-                      condition={item.categories.includes(category.id)}
-                      key={item.id}>
-                      <Post
-                        title={item?.title.rendered}
-                        description={item?.excerpt.rendered}
-                        onPress={() => toPost(item.id)}
-                        uri={item?.media_url}
-                      />
-                    </If>
-                  )}
-                />
-              </ContainerPosts>
-            </>
-          ))}
-        </ContentItems>
-        <Footer />
-      </Container>
-    </Wrapper>
+    <>
+      <If condition={loading}>
+        <Loading visible={loading} />
+      </If>
+
+      <If condition={!loading}>
+        <Wrapper>
+          <Header />
+          <Container
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
+            <ContentItems>
+              <Filter
+                options={options}
+                onValueChange={value => {
+                  setSelectedValue(value);
+                  handleFilter(value);
+                }}
+                value={selectedValue}
+              />
+              {categories.map((category: CategoryType) => (
+                <>
+                  <Category name={category.name} />
+                  <ContainerPosts>
+                    <ContentPosts
+                      data={posts}
+                      keyExtractor={(item: PostType) => String(item.id)}
+                      renderItem={({item}) => (
+                        <If
+                          condition={item.categories.includes(category.id)}
+                          key={item.id}>
+                          <Post
+                            title={item?.title.rendered}
+                            description={item?.excerpt.rendered}
+                            onPress={() => toPost(item.id)}
+                            uri={item?.media_url}
+                          />
+                        </If>
+                      )}
+                    />
+                  </ContainerPosts>
+                </>
+              ))}
+            </ContentItems>
+            <Footer />
+          </Container>
+        </Wrapper>
+      </If>
+    </>
   );
 };
 

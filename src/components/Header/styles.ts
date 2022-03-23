@@ -2,30 +2,6 @@ import styled from 'styled-components/native';
 import {colors} from '../../theme';
 import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {Shimmer} from '../Shimmer';
-
-export const ContainerShimmer = styled.View`
-  padding: 5px 15px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const ImageShimmer = styled(Shimmer)`
-  width: 169px;
-  height: 40px;
-  border-radius: 4px;
-`;
-
-export const MenuShimmer = styled(Shimmer)`
-  width: 37px;
-  height: 37px;
-  border-radius: 50px;
-`;
-
-export const ShimmerTest = styled(Shimmer)``;
 
 export const Container = styled.View`
   background-color: #fff;
