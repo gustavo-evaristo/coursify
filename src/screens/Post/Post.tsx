@@ -11,12 +11,15 @@ import {
   ContentItems,
   ShimmerTitle,
   ShimmerSubTitle,
-  ContentShimmer,
+  ShimmerContent,
   ShimmerSubText,
   ShimmerText,
   ShimmerContentDescription,
   ShimmerImage,
   ShimmerContentImage,
+  ShimmerHeader,
+  ShimmerIcon,
+  ShimmerMenu,
 } from './styles';
 
 type Props = {
@@ -36,8 +39,11 @@ const Post: React.FC<Props> = ({
 }) => (
   <Wrapper>
     <If condition={loading}>
-      <Header />
-      <ContentShimmer>
+      <ShimmerHeader>
+        <ShimmerIcon />
+        <ShimmerMenu />
+      </ShimmerHeader>
+      <ShimmerContent>
         <ShimmerTitle />
         <ShimmerSubTitle />
         <ShimmerContentDescription>
@@ -59,7 +65,7 @@ const Post: React.FC<Props> = ({
             </View>
           ))}
         </ShimmerContentDescription>
-      </ContentShimmer>
+      </ShimmerContent>
     </If>
     <If condition={!loading}>
       <Header showIconBack onPressIconBack={goBack} />

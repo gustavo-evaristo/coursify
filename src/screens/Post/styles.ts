@@ -6,10 +6,32 @@ type PropsText = {
   isDescription: boolean;
 };
 
-export const ContentShimmer = styled.View`
+export const ShimmerContent = styled.View`
   width: 100%;
   flex: 1;
   padding: 0 15px;
+`;
+
+export const ShimmerHeader = styled.View`
+  width: 100%;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+`;
+
+export const ShimmerIcon = styled(Shimmer)`
+  width: 200px;
+  height: 35px;
+  border-radius: 4px;
+`;
+
+export const ShimmerMenu = styled(Shimmer)`
+  width: 35;
+  height: 35px;
+  border-radius: 50px;
 `;
 
 export const ShimmerTitle = styled(Shimmer)`
