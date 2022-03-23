@@ -23,3 +23,11 @@ export const sortDsc = (a, b) => {
   }
   return 0;
 };
+
+export const someViews = (posts: PostType[]): number => {
+  let views = 0;
+
+  posts.map(post => (views += post.page_views));
+
+  return views;
+};

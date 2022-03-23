@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';
 import {colors} from '../../theme';
-import {Shimmer} from '../Shimmer';
 
 export const pickerSelectStyles = StyleSheet.create({
   viewContainer: {
@@ -21,18 +20,6 @@ export const pickerSelectStyles = StyleSheet.create({
     height: 50,
   },
 });
-
-export const TextShimmer = styled(Shimmer)`
-  width: 120px;
-  height: 15px;
-  border-radius: 4px;
-`;
-
-export const FilterShimmer = styled(Shimmer)`
-  width: 80px;
-  height: 40px;
-  border-radius: 10px;
-`;
 
 export const Container = styled.View`
   margin: 15px 0;
