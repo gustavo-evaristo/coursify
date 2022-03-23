@@ -36,7 +36,7 @@ const Home: React.FC<Props> = ({
   const options = [{label: 'Z-A', value: 'DSC'}];
   return (
     <Wrapper>
-      <Header loading={loading} />
+      <Header />
       <Container
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -49,11 +49,10 @@ const Home: React.FC<Props> = ({
               handleFilter(value);
             }}
             value={selectedValue}
-            loading={loading}
           />
           {categories.map((category: CategoryType) => (
             <>
-              <Category name={category.name} loading={loading} />
+              <Category name={category.name} />
               <ContainerPosts>
                 <ContentPosts
                   data={posts}

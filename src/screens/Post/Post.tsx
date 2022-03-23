@@ -36,7 +36,7 @@ const Post: React.FC<Props> = ({
 }) => (
   <Wrapper>
     <If condition={loading}>
-      <Header loading={loading} />
+      <Header />
       <ContentShimmer>
         <ShimmerTitle />
         <ShimmerSubTitle />
@@ -62,7 +62,7 @@ const Post: React.FC<Props> = ({
       </ContentShimmer>
     </If>
     <If condition={!loading}>
-      <Header showIconBack onPressIconBack={goBack} loading={loading} />
+      <Header showIconBack onPressIconBack={goBack} />
       <Content
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
